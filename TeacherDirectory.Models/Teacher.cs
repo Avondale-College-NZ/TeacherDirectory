@@ -12,6 +12,5 @@ namespace TeacherDirectory.Models
         public string Email { get; set; }
         public string Photopath { get; set; }
         public Dept? Department { get; set; }
-
     }
 }
