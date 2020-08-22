@@ -1,0 +1,30 @@
+﻿@page "/Teachers/view/{id:range(0,100)}"
+@model TeacherDirectory.Pages.Teachers.DetailModel
+@{
+    var photopath = "~/images/" + (Model.Teacher.Photopath ?? "Default.jpg");
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Teacher.FName</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <img class="card-img-top" src="@photopath" asp-append-version="true" />
+
+                <h4>Teacher ID : @Model.Teacher.ID</h4>
+                <h4>Email : @Model.Teacher.Email</h4>
+                <h4>Department : @Model.Teacher.Department</h4>
+
+            </div>
+
+            <div class="card-footer text-center">
+                <a asp-page="/Teachers/index" class="btn btn-primary">Back</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

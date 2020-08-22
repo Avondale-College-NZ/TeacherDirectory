@@ -7,5 +7,6 @@ namespace TeacherDirectory.Services
     public interface ITeacherRepository
     {
         IEnumerable<Teacher> GetAllTeachers();
+        Teacher GetTeacher(int id);
     }
 }

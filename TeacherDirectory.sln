@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeacherDirectory", "TeacherDirectory\TeacherDirectory.csproj", "{99077484-414A-49A9-A704-29FE287EFCED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeacherDirectory.Models", "TeacherDirectory.Models\TeacherDirectory.Models.csproj", "{0934F31E-88EA-4EF9-90D3-0BE19D11F296}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeacherDirectory.Models", "TeacherDirectory.Models\TeacherDirectory.Models.csproj", "{0934F31E-88EA-4EF9-90D3-0BE19D11F296}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeacherDirectory.Services", "TeacherDirectory.Services\TeacherDirectory.Services.csproj", "{2062A343-76D3-45BC-BF40-3D4E9BA6BFD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeacherDirectory.Services", "TeacherDirectory.Services\TeacherDirectory.Services.csproj", "{2062A343-76D3-45BC-BF40-3D4E9BA6BFD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

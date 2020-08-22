@@ -9,19 +9,19 @@ using TeacherDirectory.Services;
 
 namespace TeacherDirectory.Pages.Teachers
 {
-    public class IndexModel : PageModel
+    public class DetailModel : PageModel
     {
         private readonly ITeacherRepository teacherRepository;
-
-        public IEnumerable<Teacher> Teachers { get; set; }
-        public IndexModel(ITeacherRepository teacherRepository)
+        public DetailModel(ITeacherRepository teacherRepository)
         {
             this.teacherRepository = teacherRepository;
         }
 
-        public void OnGet()
+        public Teacher Teacher { get; private set; }
+
+        public void OnGet(int id)
         {
-            Teachers = teacherRepository.GetAllTeachers();
+            Teacher = teacherRepository.GetTeacher(id);
         }
     }
 }

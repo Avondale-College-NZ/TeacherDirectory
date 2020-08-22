@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TeacherDirectory.Models;
+using System.Linq;
 
 namespace TeacherDirectory.Services
 {
@@ -24,5 +25,11 @@ namespace TeacherDirectory.Services
         {
             return _teacherList;
         }
+
+        public Teacher GetTeacher(int id)
+        {
+            return _teacherList.FirstOrDefault(e => e.ID == id);
+        }
+
     }
 }
