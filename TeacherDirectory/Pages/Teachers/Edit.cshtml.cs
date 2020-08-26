@@ -22,10 +22,16 @@ namespace TeacherDirectory.Pages.Teachers
             this.webHostEnvironment = webHostEnvironment;
         }
 
+        [BindProperty]
         public Teacher Teacher { get; set; }
 
         [BindProperty]
         public IFormFile Photo { get; set; }
+
+        [BindProperty]
+        public bool Notify { get; set; }
+
+        public string Message { get; set; }
 
         public IActionResult OnGet(int id)
         {
@@ -44,19 +50,43 @@ namespace TeacherDirectory.Pages.Teachers
 
         public IActionResult OnPost()
         {
-            if(Photo != null)
+            if(ModelState.IsValid)
             {
-                if (teacher.Photopath != null)
+                if (Photo != null)
                 {
-                    string filePath = Path.Combine(webHostEnvironment.WebRootPath, "images", teacher.Photopath);
-                    System.IO.File.Delete(filePath);
+                    if (Teacher.Photopath != null)
+                    {
+                        string filePath = Path.Combine(webHostEnvironment.WebRootPath, "images", Teacher.Photopath);
+                        System.IO.File.Delete(filePath);
+                    }
+
+                    Teacher.Photopath = ProcessUploadedFile();
                 }
-                teacher.Photopath = ProcessUploadedFile();
+
+                Teacher = teacherRepository.Update(Teacher);
+                return RedirectToPage("Index");
             }
+
+            return Page();
             
-            Teacher = teacherRepository.Update(teacher);
-            return RedirectToPage("Index");
         }
+
+        public IActionResult OnPostUpdateNotificationPreferences(int id)
+        {
+            if (Notify)
+            {
+                Message = "notifications are turned on";
+            }
+            else
+            {
+                Message = "notifications are turned off";
+            }
+
+            TempData["message"] = Message;
+
+            return RedirectToPage("Detail", new { id = id,});
+        }
+
         private string ProcessUploadedFile()
         {
             string uniqueFileName = null;

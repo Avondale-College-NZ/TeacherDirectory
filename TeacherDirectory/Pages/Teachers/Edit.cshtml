@@ -1,10 +1,26 @@
-﻿@page "{id:range(1,100)}"
+﻿@page "{id:range(1,100)}/{handler?}"
 @model TeacherDirectory.Pages.Teachers.EditModel
 @{
     var photoPath = "~/images/" + (Model.Teacher.Photopath ?? "Deafult.jpg");
 }
 
-<form method="post" class="mt-3" enctype="multipart/form-data">
+<h1>Verification</h1>
+
+<form method="post" asp-page-handler="UpdateNotificationPreferences">
+    <div class="form-check">
+        <input asp-for="Notify" class="form-check-input" />
+        <label asp-for="Notify" class="form-check-label">Recieve verification email when my details change</label>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        Update preferences
+    </button>
+</form>
+
+<hr />
+
+<h1>Edit user</h1>
+
+<form method="post" class="mt-3" enctype="multipart/form-data" asp-page-handler="OnPost">
     <input hidden asp-for="Teacher.ID" />
     <input hidden asp-for="Teacher.Photopath" />
 
@@ -12,6 +28,7 @@
         <label asp-for="Teacher.FName" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="Teacher.FName" class="form-control" placeholder="Name" />
+            <span asp-validation-for="Teacher.FName" class="text-danger"></span>
         </div>
     </div>
 
@@ -19,6 +36,7 @@
         <label asp-for="Teacher.Email" class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
             <input asp-for="Teacher.Email" class="form-control" placeholder="Email" />
+            <span asp-validation-for="Teacher.Email" class="text-danger"></span>
         </div>
     </div>
 
@@ -63,3 +81,4 @@
         </script>
     }
 </form>
+

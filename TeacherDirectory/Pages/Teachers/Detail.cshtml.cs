@@ -17,6 +17,9 @@ namespace TeacherDirectory.Pages.Teachers
             this.teacherRepository = teacherRepository;
         }
 
+        [BindProperty(SupportsGet = true)]
+        public string Message { get; set; }
+
         public Teacher Teacher { get; private set; }
 
         public IActionResult OnGet(int id)
