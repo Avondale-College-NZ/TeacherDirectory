@@ -19,9 +19,16 @@ namespace TeacherDirectory.Pages.Teachers
 
         public Teacher Teacher { get; private set; }
 
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             Teacher = teacherRepository.GetTeacher(id);
+
+            if (Teacher == null) 
+            {
+                return RedirectToPage("/Error");
+            }
+
+            return Page();
         }
     }
 }
