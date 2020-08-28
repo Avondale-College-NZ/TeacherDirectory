@@ -1,0 +1,24 @@
+﻿@model Teacher
+@{
+    var photopath = "~/images/" + (Model.Photopath ?? "Default.jpg");
+    var showButtons = (bool)ViewData["Showbuttions"];
+}
+<div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+    <div class="card-header">
+        <h3>@Model.FName</h3>
+    </div>
+
+    <img class="card-img-top imageThumbnail src=@photopath" asp-append-version="true" />
+
+    @if (showButtons)
+    {
+        <div class="card-footer text-black-50 center">
+            <a asp-page="/Teachers/Detail"
+            asp-route-ID="@Model.ID" class="btn btn-primary m-1">View</a>
+            <a asp-page="/Teachers/Edit"
+            asp-route-ID="@Model.ID" class="btn btn-primary m-1">Edit</a>
+            <a asp-page="/Teachers/Delete"
+            asp-route-ID="@Model.ID" class="btn btn-danger m-1">Delete</a>
+        </div>
+    }
+</div>

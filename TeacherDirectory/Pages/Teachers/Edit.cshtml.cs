@@ -43,7 +43,6 @@ namespace TeacherDirectory.Pages.Teachers
             {
                 Teacher = new Teacher();
             }
-            Teacher = teacherRepository.GetTeacher(id);
 
             if(Teacher == null)
             {
