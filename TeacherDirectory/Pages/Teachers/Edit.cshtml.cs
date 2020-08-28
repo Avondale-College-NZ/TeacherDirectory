@@ -33,8 +33,16 @@ namespace TeacherDirectory.Pages.Teachers
 
         public string Message { get; set; }
 
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet(int? id)
         {
+            if(id.HasValue)
+            {
+                Teacher = teacherRepository.GetTeacher(id.Value);
+            }
+            else
+            {
+                Teacher = new Teacher();
+            }
             Teacher = teacherRepository.GetTeacher(id);
 
             if(Teacher == null)
@@ -62,8 +70,17 @@ namespace TeacherDirectory.Pages.Teachers
 
                     Teacher.Photopath = ProcessUploadedFile();
                 }
+                
+                if (Teacher.ID > 0)
+                {
+                    Teacher = teacherRepository.Update(Teacher);
+                }
 
-                Teacher = teacherRepository.Update(Teacher);
+                else
+                {
+                    Teacher = teacherRepository.Add(Teacher);
+                }
+
                 return RedirectToPage("Index");
             }
 

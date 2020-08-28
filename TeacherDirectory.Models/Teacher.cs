@@ -19,6 +19,7 @@ namespace TeacherDirectory.Models
         [Display(Name = "School Email")]
         public string Email { get; set; }
         public string Photopath { get; set; }
+        [Required]
         public Dept? Department { get; set; }
     }
 }

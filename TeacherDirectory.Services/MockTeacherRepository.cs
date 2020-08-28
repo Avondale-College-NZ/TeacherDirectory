@@ -20,7 +20,26 @@ namespace TeacherDirectory.Services
                 new Teacher() { ID = 4, FName = "Aziz", LName = "Patel", Email = "", Department = Dept.Technology, Photopath = ""},
             };
         }
-        
+
+        public Teacher Add(Teacher newTeacher)
+        {
+            newTeacher.ID = _teacherList.Max(t => t.ID) + 1;
+            _teacherList.Add(newTeacher);
+            return newTeacher;
+        }
+
+        public Teacher Delete(int id)
+        {
+           Teacher teacherToDelete = _teacherList.FirstOrDefault(t => t.ID == id);
+
+            if (teacherToDelete != null)
+            {
+                _teacherList.Remove(teacherToDelete);
+            }
+
+            return teacherToDelete;
+        }
+
         public IEnumerable<Teacher> GetAllTeachers()
         {
             return _teacherList;
