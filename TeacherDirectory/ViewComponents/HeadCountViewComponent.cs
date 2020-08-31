@@ -17,9 +17,9 @@ namespace TeacherDirectory.ViewComponents
             this.teacherRepository = teacherRepository;
         }
 
-        public IViewComponentResult Invoke(Dept? department = null)
+        public IViewComponentResult Invoke(Dept? departmentName = null)
         {
-            var result = teacherRepository.TeacherCountByDept(department);
+            var result = teacherRepository.TeacherCountByDept(departmentName);
             return View(result);
         }
     }

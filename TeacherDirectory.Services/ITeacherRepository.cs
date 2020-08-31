@@ -6,6 +6,7 @@ namespace TeacherDirectory.Services
 {
     public interface ITeacherRepository
     {
+        IEnumerable<Teacher> Search(string searchTerm);
         IEnumerable<Teacher> GetAllTeachers();
         Teacher GetTeacher(int id);
         Teacher Update(Teacher updatedTeacher);

@@ -14,6 +14,10 @@ namespace TeacherDirectory.Pages.Teachers
         private readonly ITeacherRepository teacherRepository;
 
         public IEnumerable<Teacher> Teachers { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
+
         public IndexModel(ITeacherRepository teacherRepository)
         {
             this.teacherRepository = teacherRepository;
@@ -21,7 +25,7 @@ namespace TeacherDirectory.Pages.Teachers
 
         public void OnGet()
         {
-            Teachers = teacherRepository.GetAllTeachers();
+            Teachers = teacherRepository.Search(SearchTerm); 
         }
     }
 }

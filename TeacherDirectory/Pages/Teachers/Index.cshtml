@@ -11,13 +11,22 @@
     }
 </style>
 
-@await Component.InvokeAsync("HeadCount") 
+<form method="get">
+    <div class="input-group">
+        <input class="form-control" asp-for="SearchTerm"/>
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+
+<vc:head-count department-name="@null"></vc:head-count>
 
 <h1>Teachers</h1>
 
 <div class="card-deck">
     @foreach (var teacher in Model.Teachers)
     {
-        <partial name="_DisplayTeacherPartial" model="teacher" view-data="ViewData"/>
+        <partial name="_DisplayTeacherPartial" model="teacher" view-data="ViewData" />
     }
 </div>
