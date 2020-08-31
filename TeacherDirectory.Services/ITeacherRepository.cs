@@ -11,5 +11,6 @@ namespace TeacherDirectory.Services
         Teacher Update(Teacher updatedTeacher);
         Teacher Add(Teacher newTeacher);
         Teacher Delete(int id);
+        IEnumerable<DeptHeadCount> TeacherCountByDept(Dept? dept);
     }
 }

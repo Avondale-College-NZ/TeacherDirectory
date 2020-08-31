@@ -50,6 +50,22 @@ namespace TeacherDirectory.Services
             return _teacherList.FirstOrDefault(e => e.ID == id);
         }
 
+        public IEnumerable<DeptHeadCount> TeacherCountByDept(Dept? dept)
+        {
+            IEnumerable<Teacher> query = _teacherList;
+            if(dept.HasValue)
+            {
+                query = query.Where(t => t.Department == dept.Value);
+            }
+
+            return query.GroupBy(t => t.Department)
+                .Select(g => new DeptHeadCount()
+                {
+                    Department = g.Key.Value,
+                    count = g.Count()
+                }).ToList();
+        }
+
         public Teacher Update(Teacher updatedTeacher)
         {
             Teacher teacher = _teacherList.FirstOrDefault(t => t.ID == updatedTeacher.ID);
