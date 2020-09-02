@@ -14,4 +14,4 @@ namespace TeacherDirectory.Services
         Teacher Delete(int id);
         IEnumerable<DeptHeadCount> TeacherCountByDept(Dept? dept);
     }
-}
+} 
