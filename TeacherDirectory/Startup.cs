@@ -32,7 +32,7 @@ namespace TeacherDirectory
             });
 
             services.AddRazorPages();
-            services.AddSingleton<ITeacherRepository, MockTeacherRepository>();
+            services.AddScoped<ITeacherRepository, SQLTeacherRepository>();
 
             services.Configure<RouteOptions>(options =>
             {
