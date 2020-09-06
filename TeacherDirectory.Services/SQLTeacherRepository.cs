@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using TeacherDirectory.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 
 namespace TeacherDirectory.Services
 {
@@ -35,12 +37,14 @@ namespace TeacherDirectory.Services
 
         public IEnumerable<Teacher> GetAllTeachers()
         {
-            return context.Teachers;
+            return context.Teachers.FromSqlRaw<Teacher>("SELECT * FROM teachers").ToList();
         }
 
         public Teacher GetTeacher(int id)
         {
-            return context.Teachers.Find(id);
+            SqlParameter parameter = new SqlParameter("@Id", id);
+            
+            return context.Teachers.FromSqlRaw<Teacher>("spGetTeacherById @Id", parameter).ToList().FirstOrDefault();
         }
 
         public IEnumerable<Teacher> Search(string searchTerm)
