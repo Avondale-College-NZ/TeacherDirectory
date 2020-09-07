@@ -10,7 +10,8 @@
         width: 75px;
     }
 </style>
-
+ <h1>Search Teacher</h1>
+<p></p>
 <form method="get">
     <div class="input-group">
         <input class="form-control" asp-for="SearchTerm"/>
@@ -19,11 +20,11 @@
         </div>
     </div>
 </form>
-
+<hr />
+<p></p>
 <vc:head-count department-name="@null"></vc:head-count>
-
-<h1>Teachers</h1>
-
+<p></p>
+<h3>Teachers</h3>
 <div class="card-deck">
     @foreach (var teacher in Model.Teachers)
     {
