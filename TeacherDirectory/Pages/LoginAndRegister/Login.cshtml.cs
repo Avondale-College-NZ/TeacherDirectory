@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,13 +11,11 @@ namespace TeacherDirectory.Pages.LoginAndRegister
     public class LoginModel : PageModel
     {
         [Required]
-        [StringLength(40, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
-        public string username { get; set; }
+        [StringLength(50, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
+        public string Username { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        public string password { get; set; }
+        [StringLength(100, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
+        public string Password { get; set; }
     }
-    
-    if(){}
-    else(){}
 }
