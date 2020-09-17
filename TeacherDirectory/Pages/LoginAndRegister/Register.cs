@@ -24,6 +24,11 @@ namespace TeacherDirectory.Pages.LoginAndRegister
         public string Password { get; set; }
 
         [Required]
+        [DataType(DataType.Password)]
+        [StringLength(100, ErrorMessage = "The {0} value cannot exceed {1} characters. ")]
+        public string RepeatPassword { get; set; }
+
+        [Required]
         public string Department { get; set; }
     }
 }
