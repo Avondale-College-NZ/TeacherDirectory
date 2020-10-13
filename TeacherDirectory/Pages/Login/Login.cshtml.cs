@@ -28,7 +28,7 @@ namespace TeacherDirectory.Pages.LoginAndRegister
 
         public IActionResult OnPost()
         {
-            if (Username.Equals("abc") && Password.Equals("123"))
+            if (Username.Equals("Admin") && Password.Equals("GSOLE"))
             {
                 return RedirectToPage("Admin");
             }
