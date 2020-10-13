@@ -14,7 +14,7 @@ namespace TeacherDirectory.Models
         [Display(Name = "First Name")]
         public string FName { get; set; }
         public string LName { get; set; }
-        [Required(ErrorMessage = "Email is required")]
+        [Required(ErrorMessage = "Email is required"),]
         [RegularExpression(@"^[a-zA-z0-9_.+-]+@[a-zA-z0-9-]+\.[a-zA-z0-9-.]+$", ErrorMessage = "Invalid Email Format")]
         [Display(Name = "School Email")]
         public string Email { get; set; }
