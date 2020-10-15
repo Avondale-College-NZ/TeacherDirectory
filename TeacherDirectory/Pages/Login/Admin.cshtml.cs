@@ -15,10 +15,9 @@ namespace TeacherDirectory.Pages.Login
         public void Onget()
         {
         }
-
         public IActionResult OnGetLogout()
         {
             return RedirectToPage("Index");
-        }
+        } //When logout link is pressed it redirects to the Index page
     }
 }
