@@ -32,6 +32,6 @@ namespace TeacherDirectory.Pages.Teachers
             }
 
             return Page();
-        }
+        } //Allows users to view the teacher information without editing it
     }
 }

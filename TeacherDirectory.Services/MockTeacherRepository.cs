@@ -4,6 +4,7 @@ using System.Text;
 using TeacherDirectory.Models;
 using System.Linq;
 
+/*This is just a template used as a DB that isn't connected to this project anymore*/
 namespace TeacherDirectory.Services
 {
     public class MockTeacherRepository : ITeacherRepository
@@ -18,7 +19,7 @@ namespace TeacherDirectory.Services
                 new Teacher() { ID = 2, FName = "Cooper", LName = "Hiebendal", Email = "", Department = Dept.SocialScience, Photopath = ""},
                 new Teacher() { ID = 3, FName = "Malhar", LName = "Gohel", Email = "", Department = Dept.Math, Photopath = ""},
                 new Teacher() { ID = 4, FName = "Aziz", LName = "Patel", Email = "", Department = Dept.Technology, Photopath = ""},
-            };
+            }; //Contains the fields and data of each field
         }
 
         public Teacher Add(Teacher newTeacher)
@@ -26,7 +27,7 @@ namespace TeacherDirectory.Services
             newTeacher.ID = _teacherList.Max(t => t.ID) + 1;
             _teacherList.Add(newTeacher);
             return newTeacher;
-        }
+        } //Adding teacher function
 
         public Teacher Delete(int id)
         {
@@ -35,7 +36,7 @@ namespace TeacherDirectory.Services
             if (teacherToDelete != null)
             {
                 _teacherList.Remove(teacherToDelete);
-            }
+            } //Remove teacher function
 
             return teacherToDelete;
         }
@@ -58,7 +59,7 @@ namespace TeacherDirectory.Services
             }
 
             return _teacherList.Where(t => t.FName.Contains(searchTerm) || t.Email.Contains(searchTerm));
-        }
+        } //Searches teachers in this repository
 
         public IEnumerable<DeptHeadCount> TeacherCountByDept(Dept? dept)
         {
@@ -74,7 +75,7 @@ namespace TeacherDirectory.Services
                     Department = g.Key.Value,
                     count = g.Count()
                 }).ToList();
-        }
+        } //Head count function in this repository
 
         public Teacher Update(Teacher updatedTeacher)
         {
@@ -89,6 +90,6 @@ namespace TeacherDirectory.Services
             }
 
             return teacher;
-        }
+        } //Update function in this repository
     }
 }

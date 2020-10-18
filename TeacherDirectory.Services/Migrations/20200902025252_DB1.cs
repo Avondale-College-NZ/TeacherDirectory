@@ -17,7 +17,8 @@ namespace TeacherDirectory.Services.Migrations
                     Email = table.Column<string>(nullable: false),
                     Photopath = table.Column<string>(nullable: true),
                     Department = table.Column<int>(nullable: false)
-                },
+                }, //I used the the Packet manager to create this DB that is found in SQL
+                //This code allows the teachers in the DB to be created, updated or deleted
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teachers", x => x.ID);

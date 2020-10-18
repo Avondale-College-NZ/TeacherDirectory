@@ -38,16 +38,16 @@ namespace TeacherDirectory.Pages.Teachers
             if(id.HasValue)
             {
                 Teacher = teacherRepository.GetTeacher(id.Value);
-            }
+            } //If the teacher already exsists in the DB it will allow you to edit the teacher
             else
             {
                 Teacher = new Teacher();
-            }
+            } //If the teacher doesn't exsist it will allow to add a new teacher to the DB
 
             if(Teacher == null)
             {
                 return RedirectToPage("/Error");
-            }
+            }  //If something unexpected occurs it will send the user to the edit page
 
             return Page();
         }
@@ -85,7 +85,7 @@ namespace TeacherDirectory.Pages.Teachers
 
             return Page();
             
-        }
+        } //Allows the user to add or update the teacher account once it finishes it wil redirect to the home page
 
         public IActionResult OnPostUpdateNotificationPreferences(int id)
         {
@@ -101,7 +101,7 @@ namespace TeacherDirectory.Pages.Teachers
             TempData["message"] = Message;
 
             return RedirectToPage("Detail", new { id = id,});
-        }
+        } //these are the notification preferences when the user is creating an account to the teacher DB
 
         private string ProcessUploadedFile()
         {
@@ -116,7 +116,7 @@ namespace TeacherDirectory.Pages.Teachers
                 {
                     Photo.CopyTo(fileStream);
                 }
-            }
+            } //allows user to add, update or remove a photo from their profile.
 
             return uniqueFileName;
         }

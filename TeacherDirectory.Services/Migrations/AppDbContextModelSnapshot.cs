@@ -45,7 +45,7 @@ namespace TeacherDirectory.Services.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Teachers");
-                });
+                }); //Fields in the SQL DB
 #pragma warning restore 612, 618
         }
     }

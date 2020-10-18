@@ -15,7 +15,7 @@ namespace TeacherDirectory.Services.Migrations
 	            where Id = @Id
              End";
             migrationBuilder.Sql(procedure);
-        }
+        } //Stored procedure in the SQL DB that retreves the teacher by the ID
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {

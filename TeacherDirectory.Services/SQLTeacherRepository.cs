@@ -6,6 +6,8 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
 
+/*This is the SQL repository that replaces the MockTeacherRepository, this connects the profiler to the SQL DB. 
+ * Most of the functions from the old repository are copied over to this repository therefore some of the code remains the same.*/
 namespace TeacherDirectory.Services
 {
     public class SQLTeacherRepository : ITeacherRepository
@@ -22,7 +24,7 @@ namespace TeacherDirectory.Services
             context.Teachers.Add(newTeacher);
             context.SaveChanges();
             return newTeacher;
-        }
+        } //Add new teacher function
 
         public Teacher Delete(int id)
         {
@@ -33,19 +35,19 @@ namespace TeacherDirectory.Services
                 context.SaveChanges();
             }
             return teacher;
-        }
+        } //Remove teacher function
 
         public IEnumerable<Teacher> GetAllTeachers()
         {
             return context.Teachers.FromSqlRaw<Teacher>("SELECT * FROM teachers").ToList();
-        }
+        } //Retreves teachers from the DB
 
         public Teacher GetTeacher(int id)
         {
             SqlParameter parameter = new SqlParameter("@Id", id);
             
             return context.Teachers.FromSqlRaw<Teacher>("spGetTeacherById @Id", parameter).ToList().FirstOrDefault();
-        }
+        } //Retreves the teacher by the teacher ID
 
         public IEnumerable<Teacher> Search(string searchTerm)
         {
@@ -55,7 +57,7 @@ namespace TeacherDirectory.Services
             }
 
             return context.Teachers.Where(t => t.FName.Contains(searchTerm) || t.Email.Contains(searchTerm));
-        }
+        } //Search teacher function
 
         public IEnumerable<DeptHeadCount> TeacherCountByDept(Dept? dept)
         {
@@ -71,7 +73,7 @@ namespace TeacherDirectory.Services
                     Department = g.Key.Value,
                     count = g.Count()
                 }).ToList();
-        }
+        } //Head count funtion
 
         public Teacher Update(Teacher updatedTeacher)
         {
@@ -79,6 +81,6 @@ namespace TeacherDirectory.Services
             teacher.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
             return updatedTeacher;
-        }
+        } //Update teacher function
     }
 }

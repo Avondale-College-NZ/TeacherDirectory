@@ -8,5 +8,5 @@ namespace TeacherDirectory.Models
     {
         public Dept Department { get; set; }
         public int count { get; set; }
-    }
+    } //gets the dept name from dept.cs
 }

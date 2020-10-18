@@ -21,6 +21,6 @@ namespace TeacherDirectory.ViewComponents
         {
             var result = teacherRepository.TeacherCountByDept(departmentName);
             return View(result);
-        }
+        } //Gets all of the teachers from the teacher DB and counts the total amount from each department
     }
 }

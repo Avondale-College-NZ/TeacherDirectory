@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace TeacherDirectory.Pages
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    //Makes the application run smoother by redcucing the number of requests to the resource
     public class ErrorModel : PageModel
     {
         public string RequestId { get; set; }

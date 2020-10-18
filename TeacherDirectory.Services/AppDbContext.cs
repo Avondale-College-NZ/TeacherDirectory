@@ -10,9 +10,7 @@ namespace TeacherDirectory.Services
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-
         }
-
         public DbSet<Teacher> Teachers { get; set; }
     }
 }

@@ -11,5 +11,5 @@ namespace TeacherDirectory.Models
         Technology,
         Art,
         Sport,
-    }
+    } //creates an enum which contains all the departments
 }

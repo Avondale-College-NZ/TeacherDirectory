@@ -13,5 +13,5 @@ namespace TeacherDirectory.Services
         Teacher Add(Teacher newTeacher);
         Teacher Delete(int id);
         IEnumerable<DeptHeadCount> TeacherCountByDept(Dept? dept);
-    }
+    } //All the functions within the Teacher profiler
 } 
