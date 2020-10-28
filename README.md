@@ -3,6 +3,9 @@ This teacher profiler program has several requirements and instructions for the 
 
 ## Requirements
 
-+ When installing this product onto another application: A Windows, IOS or Linux operating system is required. 
-Visual studio 2019 with asp.net core framework is required
-A computer with enough storage is required.
++ A Windows 10, IOS or Linux operating system is required. 
++ Visual studio 2019 with asp.net core framework is required.
+
+## Author
+
+[Shayen Kesha](Shayen.Kesha@gmail.com)
