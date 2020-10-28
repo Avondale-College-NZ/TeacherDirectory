@@ -1,5 +1,5 @@
 # Avondale College teacher profiler
-This teacher profiler program has several requirements and instructions for the proper usage of this application
+This teacher profiler program has several requirements for the proper usage of this application
 
 ## Requirements
 
