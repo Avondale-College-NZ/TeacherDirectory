@@ -8,4 +8,4 @@ This teacher profiler program has a few requirements for the proper usage of thi
 
 ## Author
 
-[Shayen Kesha](Shayen.Kesha@gmail.com)
+Shayen.Kesha@gmail.com
